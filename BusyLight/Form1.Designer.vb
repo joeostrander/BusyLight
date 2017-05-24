@@ -55,9 +55,12 @@ Partial Class Form1
         Me.PanelOnPhone = New System.Windows.Forms.Panel()
         Me.LabelRescan = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ContextMenuStripTRAY.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'LabelLEDPort
@@ -305,14 +308,30 @@ Partial Class Form1
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 5000
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 279)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(437, 22)
+        Me.StatusStrip1.TabIndex = 23
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(120, 17)
+        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
+        '
         'Form1
         '
         Me.AcceptButton = Me.ButtonSend
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonClear
-        Me.ClientSize = New System.Drawing.Size(437, 287)
+        Me.ClientSize = New System.Drawing.Size(437, 301)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.LabelRescan)
         Me.Controls.Add(Me.LabelPhone)
         Me.Controls.Add(Me.PanelOnPhone)
@@ -334,7 +353,7 @@ Partial Class Form1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(453, 325)
+        Me.MinimumSize = New System.Drawing.Size(453, 340)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -342,6 +361,8 @@ Partial Class Form1
         Me.ContextMenuStripTRAY.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -377,5 +398,6 @@ Partial Class Form1
     Friend WithEvents ClearMessageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LabelRescan As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
 End Class

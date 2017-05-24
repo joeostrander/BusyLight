@@ -171,6 +171,8 @@ Public Class Form1
         NotifyIcon1.Icon = My.Resources.busylight_off
         Me.Icon = My.Resources.busylight_off
 
+        ToolStripStatusLabel1.Text = ""
+
         'LoadRegistrySettings()
 
         Dim pair As KeyValuePair(Of String, String)
@@ -280,7 +282,7 @@ Public Class Form1
         If ComboBoxMode.SelectedItem Is Nothing Then Exit Sub
 
         Dim strFullMessage As String = ""
-
+        ToolStripStatusLabel1.Text = ""
 
         Dim strAction As String
 
@@ -349,7 +351,8 @@ Public Class Form1
         Dim strPortName_LED As String = ComboBoxLEDPort.SelectedValue.ToString
 
         If strPortName_LED = "" Then
-            MsgBox("No LED port selected!", MsgBoxStyle.Exclamation)
+            'MsgBox("No LED port selected!", MsgBoxStyle.Exclamation)
+            ToolStripStatusLabel1.Text = "No LED port selected!"
             Exit Sub
         End If
 
@@ -364,7 +367,8 @@ Public Class Form1
         Try
             _serialPort_LED.Open()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+            'MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+            ToolStripStatusLabel1.Text = ex.Message
             Exit Sub
         End Try
 
@@ -388,10 +392,11 @@ Public Class Form1
         SendData("")
     End Sub
 
-    Private Sub DataReceived( _
-        ByVal sender As Object, _
+    Private Sub DataReceived(
+        ByVal sender As Object,
         ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) _
         Handles _serialPort_MCU.DataReceived
+        'ToolStripStatusLabel1.Text = ""
         Try
             Dim sp As SerialPort = CType(sender, SerialPort)
             Dim message As String = sp.ReadLine
@@ -428,7 +433,8 @@ Public Class Form1
             'End If
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+            'MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+            ToolStripStatusLabel1.Text = ex.Message
         End Try
 
     End Sub
